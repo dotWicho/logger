@@ -21,11 +21,15 @@ func NewLogger(testEnv bool) *StandardLogger {
 		baseLogger.Out = ioutil.Discard
 	}
 	baseLogger.Formatter = &logrus.TextFormatter{
-		DisableColors:   false,
-		FullTimestamp:   true,
-		ForceQuote:      false,
-		ForceColors:     true,
-		TimestampFormat: "2006-01-02 15:04:05",
+		DisableColors:          false,
+		FullTimestamp:          true,
+		ForceQuote:             false,
+		ForceColors:            true,
+		DisableQuote:           true,
+		DisableTimestamp:       false,
+		DisableLevelTruncation: false,
+		PadLevelText:           true,
+		TimestampFormat:        "02/01/2006 15:04:05",
 	}
 	return &StandardLogger{baseLogger}
 }
